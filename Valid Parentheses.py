@@ -15,4 +15,4 @@ class Solution(object):
             elif opens == [] or symbol != close_map[opens.pop()]:
                 return False
 
-        return opens == []
+        return opens == [] 
