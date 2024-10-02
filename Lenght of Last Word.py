@@ -10,7 +10,7 @@ class Solutions(object):
 
         lenght = 0
 
-        i = len(s) - 1 # su -1'i araştır "indeksleme için kullanılan -1 diye"
+        i = len(s) - 1 
 
         while i >= 0 and s[i] == ' ':
             i -= 1
