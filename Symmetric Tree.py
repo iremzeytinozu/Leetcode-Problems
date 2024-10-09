@@ -16,6 +16,6 @@ class Solution(object):
 
             return(left.val == right.val 
                     and dfs(left.left, right.right)
-                    and dfs(left.right, right.left))
+                    and dfs(left.right, right.left))  # burada istenen olmazsa False döndürür
 
         return dfs(root.left, root.right)
