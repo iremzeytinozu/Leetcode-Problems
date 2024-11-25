@@ -4,9 +4,8 @@ class Solution(object):
         dict = {}
 
         for i, number in enumerate(numbers): # enumerate: hem i hem number'ı alıyor
+            diff = target - number 
+            if diff in dict:
+                return[dict[diff], i]
 
-            if target - number in dict:
-                return([dict[target - number], i])
-            
-            elif number not in dict:
-                dict[number] = i
+            dict[number] = i
