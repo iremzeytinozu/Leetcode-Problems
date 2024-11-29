@@ -7,12 +7,14 @@ class Solution(object):
         """
         count = {}
 
-        freq = [[] for i in range(len(nums) + 1)]
-
+        # count dict'ini oluşturma için
         for num in nums:
-            # Eğer num daha önce sözlükte varsa, onun mevcut değerini al. Yoksa 0 al.
+            # Eğer num daha önce sözlükte varsa onun mevcut değerini al. Yoksa 0 al.
             count[num] = 1 + count.get(num,0)
         
+
+        freq = [[] for i in range(len(nums) + 1)]
+
         # count sözlüğündeki her bir sayı (num) ve bu sayının tekrar sayısını (cnt) alır.
         for num, cnt in count.items():
             freq[cnt].append(num)
