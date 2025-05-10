@@ -1,18 +1,21 @@
 class Solution(object):
     def isValid(self, s):
         
-        close_map = {"(" : ")",
-                     "{" : "}",
-                     "[" : "]"
-                    }
-        opens = []
+        stack = []
+        
+        for character in s:
+            if character in '([{':
+                stack.append(character)
+            elif character in ')]}':
+                if not stack:
+                    return False
+                top = stack.pop()
+                if character == ')' and top != '(':
+                    return False
+                if character == ']' and top != '[':
+                    return False
+                if character == '}' and top != '{':
+                    return False
 
-        for symbol in s:
-
-            if symbol in close_map.keys():
-                opens.append(symbol)
-            
-            elif opens == [] or symbol != close_map[opens.pop()]:
-                return False
-
-        return opens == [] 
+        # Eğer stack boşsa, tüm açılış parantezleri kapatılmış demek
+        return not stack
