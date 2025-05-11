@@ -9,9 +9,11 @@ class Solution(object):
         prev, curr = None, head
 
         while curr:
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
+            nxt = curr.next # ilk önceki node'u tut
+            curr.next = prev # curr.next'i önceki node'a bağla
+            prev = curr # önceki node'u güncelle
+            curr = nxt # curr'ı bir sonraki node'a geç
+        # döngü bittiğinde, prev son node'u gösterir
+        # ve başı döndürmek için onu döndürüyoruz
 
         return prev        
