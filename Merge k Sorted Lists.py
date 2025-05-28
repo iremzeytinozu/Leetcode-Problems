@@ -14,7 +14,13 @@ class Solution(object):
 
             for i in range(0, len(lists), 2):
                 list1 = lists[i]
-                list2 = lists[i + 1] if (i + 1) < len(lists) else None
+                
+                if (i + 1) < len(lists):
+                    list2 = lists[i + 1] 
+                
+                else: 
+                    list2 = list2
+                    
                 mergedLists.append(self.mergeList(list1, list2))
 
             lists = mergedLists
@@ -44,7 +50,3 @@ class Solution(object):
             tail.next = list2
 
         return dummy.next
-
-
-
-        
