@@ -4,24 +4,13 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
 class Solution(object):
     def inorderTraversal(self, root):
-        """
-        :type root: Optional[TreeNode]
-        :rtype: List[int]
-        """
-        tree = []
+        if not root:
+            return []
 
-        def inorder(root):
+        left = self.inorderTraversal(root.left)
+        mid = [root.val]
+        right = self.inorderTraversal(root.right)
 
-            if not root:
-                return
-
-            inorder(root.left)
-            tree.append(root.val)
-            inorder(root.right)
-        
-        inorder(root)
-        return tree
-            
+        return left + mid + right
