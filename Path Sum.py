@@ -7,11 +7,15 @@
 class Solution(object):
     def hasPathSum(self, root, targetSum):
         
-        if not root:
-            return False
+        def dfs(node, currSum):
+            if not node:
+                return False
 
-        if not root.left and not root.right and root.val == targetSum:
-            return True
-        
-        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
-        
+            currSum += node.val
+
+            if not node.left and not node.right:
+                return currSum == targetSum
+
+            return (dfs(node.left, currSum) or dfs(node.right, currSum))
+
+        return dfs(root, 0) 
