@@ -22,4 +22,3 @@ class Solution(object):
                 return nums[p]
 
         return quickSelect(0, len(nums) - 1)
-        
