@@ -1,11 +1,14 @@
 class Solution(object):
-    def twoSum(self, numbers, target):
+    def twoSum(self, nums, target):
+
+        hashMap = {} # num : index
         
-        dict = {}
+        for index, num in enumerate(nums):
+            diff = target - num
 
-        for i, number in enumerate(numbers): # enumerate: hem i hem number'ı alıyor
-            diff = target - number 
-            if diff in dict:
-                return[dict[diff], i]
+            if diff in hashMap:
+                return [hashMap[diff], index]
 
-            dict[number] = i
+            hashMap[num] = index
+
+        return
